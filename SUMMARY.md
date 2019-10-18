@@ -1,8 +1,8 @@
 # Table of contents
 
-* [Introduction](README.md)
-* [Terminology](terminology.md)
-* [Frequently Asked Questions](frequently-asked-questions.md)
+* [ENS介绍](README.md)
+* [术语](terminology.md)
+* [常见问题](frequently-asked-questions.md)
 * [ENS Deployments](ens-deployments.md)
 * [Permanent Registrar Frequently Asked Questions](permanent-registrar-faq.md)
 * [Deploying ENS on a Private Chain](deploying-ens-on-a-private-chain.md)
