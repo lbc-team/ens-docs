@@ -18,9 +18,9 @@
 
 是的，您可以随时更新您的域名所指向的地址或其他资源。
 
-### 我可以在ENS注册一个自己的TLD（顶级域名）吗?
+### 我能在ENS注册一个自己的TLD（顶级域名）吗?
 
-不。我们认为ENS是DNS所占用的“全域命名空间”的一部分，所以我们尽量不去破坏这个命名空间。ENS上专用的TLD仅限于.eth(在主网上)，或.eth和.test(在Ropsten测试网上)，再加上一些用途比较特殊的TLD，比如那些需要进行反向查找的TLD。
+不能。我们认为ENS是DNS所占用的“全域命名空间”的一部分，所以我们尽量不去破坏这个命名空间。ENS上专用的TLD仅限于.eth(在主网上)，或.eth和.test(在Ropsten测试网上)，再加上一些用途比较特殊的TLD，比如那些需要进行反向查找的TLD。
 
 此外，我们正在部署一个依赖DNSSEC的集成工具，它可以支持从大多数DNS顶级域内导入DNS域名。有关这些计划的详情，请参阅[这篇文章](https://medium.com/the-ethereum-name-service/upcoming-changes-to-the-ens-root-a1b78fd52b38)。
 

@@ -3,7 +3,7 @@
 * [ENS介绍](README.md)
 * [术语](terminology.md)
 * [常见问题](frequently-asked-questions.md)
-* [ENS Deployments](ens-deployments.md)
+* [ENS部署情况](ens-deployments.md)
 * [Permanent Registrar Frequently Asked Questions](permanent-registrar-faq.md)
 * [Deploying ENS on a Private Chain](deploying-ens-on-a-private-chain.md)
 * [DNS Registrar guide](dns-registrar-guide.md)
