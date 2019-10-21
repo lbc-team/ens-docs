@@ -4,8 +4,8 @@
 * [术语](terminology.md)
 * [常见问题](frequently-asked-questions.md)
 * [ENS部署情况](ens-deployments.md)
-* [Permanent Registrar Frequently Asked Questions](permanent-registrar-faq.md)
-* [Deploying ENS on a Private Chain](deploying-ens-on-a-private-chain.md)
+* [关于永久注册中心的常见问题](permanent-registrar-faq.md)
+* [在私有链上部署ENS](deploying-ens-on-a-private-chain.md)
 * [DNS Registrar guide](dns-registrar-guide.md)
 
 ## Dapp Developer Guide
