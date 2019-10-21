@@ -70,5 +70,5 @@ ENS为包括DApp开发人员和合约开发人员在内的各种人员提供参�
 
 #### 我想查看ENS智能合约的参考文档
 
-查看ENS智能合约的API参考文档，这些文档涵盖了ENS的核心合约、[注册表](contract-api-reference/ens.md)、[解析器](contract-api-reference/publicresolver.md)和常用的注册中心，如：[测试注册中心](contract-api-reference/testregistrar.md)、[反向注册中心]](contract-api-reference/reverseregistrar.md)以及[.eth注册中心](contract-api-reference/.eth-permanent-registrar/)。
+查看ENS智能合约的API参考文档，这些文档涵盖了ENS的核心合约、[注册表](contract-api-reference/ens.md)、[解析器](contract-api-reference/publicresolver.md)和常用的注册中心，如：[测试注册中心](contract-api-reference/testregistrar.md)、[反向注册中心](contract-api-reference/reverseregistrar.md)以及[.eth注册中心](contract-api-reference/.eth-permanent-registrar/)。
 
