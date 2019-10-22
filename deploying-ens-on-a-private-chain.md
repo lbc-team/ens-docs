@@ -183,7 +183,7 @@ async function setupReverseRegistrar(ens, resolver, reverseRegistrar, accounts) 
 
 我们可以创建一个新的合约，并在该合约的构造函数中创建和设置了所需的ENS合约，然后通过部署这个新合约来实现一次性部署。下面的合约代码中包含了所有必要的ENS合约，并将eth这一顶级域名的所有权分配给了FIFS注册器，这样任何eth域名都可以在这个单元测试中进行注册。
 
-```solidity
+```text
 pragma solidity ^0.5.0;
 
 import "@ensdomains/ens/contracts/ENSRegistry.sol";
