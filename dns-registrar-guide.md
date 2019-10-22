@@ -2,13 +2,13 @@
 
 ### 介绍
 
-DNSSEC（DNS安全扩展）构建了一个从ICANN（.）签署的根密钥开始，向下经过各级密钥签署的可信来源认证系统。假设你的DNS域名已经启用了DNSSEC，且这个域名的特定子域名（一般是`_ens.yourdomain.tld`）已经绑定了一个ETH地址，那么ENS管理器允许任何人通过向`DNSSEC Oracle`智能合约提交这个DNS域名的散列，获得相应的信息。
+DNSSEC（DNS安全扩展）构建了一个从ICANN（.）签署的根密钥开始，向下经过各级密钥签署的可信来源认证系统。假设你的DNS域名已经启用了DNSSEC，且这个域名的特定子域名（一般是`_ens.yourdomain.tld`）已经绑定了一个ETH地址，那么ENS管理器允许任何人通过向`DNSSEC Oracle`智能合约提交这个DNS域名的散列，来获得相应的信息。
 
 ### 配置流程
 
 #### 第一步：设置DNSSEC签名
 
-第一次登陆ENS管理器时，您将看到如下内容。
+第一次登陆[ENS管理器](https://app.ens.domains/)时，您将看到如下内容。
 
 ![step1: DNSSEC not enabled](https://discuss.ens.domains/uploads/default/optimized/1X/946d32d7bf60e53ccafc79eb93e4479d3437e307_2_1378x912.jpeg)
 
