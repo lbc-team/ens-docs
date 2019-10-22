@@ -8,7 +8,7 @@
 * [在私有链上部署ENS](deploying-ens-on-a-private-chain.md)
 * [DNS注册器指南](dns-registrar-guide.md)
 
-## Dapp Developer Guide
+## Dapp开发者指南
 
 * [ENS Enabling your DApp](dapp-developer-guide/ens-enabling-your-dapp.md)
 * [ENS Libraries](dapp-developer-guide/ens-libraries.md)
