@@ -1,6 +1,6 @@
 # ENS库
 
-ENS支持多种主流语言。如果有些你知道的ENS库没有在本页面陈列出来，请[向我们发起PR（pull request）](https://github.com/ensdomains/ens/compare)
+ENS支持多种主流语言。如果有些你知道的ENS库没有在本页面陈列出来，请[向我们发起PR（pull request）](https://github.com/ensdomains/ens/compare)。
 
 ### Javascript
 
@@ -11,11 +11,11 @@ ENS支持多种主流语言。如果有些你知道的ENS库没有在本页面�
 
 #### 我应该使用哪个Javascript库?
 
-如果您用过web3.js，而且不需要创建子域名、转移所有权或更新解析器等功能，那么你可以使用web3.js库中对ENS的支持。
+如果您用过web3.js，并且不需要使用创建子域名、转移所有权或更新解析器等功能，那么你可以使用web3.js库中对ENS的支持。
 
-如果您用过ethjs，而且只需要对ENS域名进行正向和反向解析，那么你可以使用ethjs库中对ENS的支持。
+如果您用过ethjs，并且只需要对ENS域名进行正向和反向解析，那么你可以使用ethjs库中对ENS的支持。
 
-如果你用过ethers.js，而且只需要对ENS域名进行正向和反向解析，那么你可以使用ethers.js库中对ENS的支持。
+如果你用过ethers.js，并且只需要对ENS域名进行正向和反向解析，那么你可以使用ethers.js库中对ENS的支持。
 
 其他情况下，建议使用ethereum-ens库。
 

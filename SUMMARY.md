@@ -10,15 +10,15 @@
 
 ## Dapp开发者指南
 
-* [在你的DApp上启用ENS](dapp-developer-guide/ens-enabling-your-dapp.md)
-* [ENS Libraries](dapp-developer-guide/ens-libraries.md)
-* [Working with ENS](dapp-developer-guide/working-with-ens.md)
-* [Resolving Names](dapp-developer-guide/resolving-names.md)
-* [Managing Names](dapp-developer-guide/managing-names.md)
-* [Registering & Renewing Names](dapp-developer-guide/registering-and-renewing-names.md)
+* [在DApp上启用ENS](dapp-developer-guide/ens-enabling-your-dapp.md)
+* [ENS库](dapp-developer-guide/ens-libraries.md)
+* [ENS的使用](dapp-developer-guide/working-with-ens.md)
+* [域名解析](dapp-developer-guide/resolving-names.md)
+* [域名管理](dapp-developer-guide/managing-names.md)
+* [域名注册和续费](dapp-developer-guide/registering-and-renewing-names.md)
 * [ENS Front-End Design Guidelines](dapp-developer-guide/front-end-design-guidelines.md)
 
-## Contract API Reference
+## 智能合约API参考资料
 
 * [Name Processing](contract-api-reference/name-processing.md)
 * [ENS](contract-api-reference/ens.md)
@@ -31,11 +31,11 @@
 * [DNS Registrar](https://dnsregistrar.readthedocs.io/en/doc)
 * [DNSProvejs](https://dnsprovejs.readthedocs.io)
 
-## Contract Developer Guide
+## 智能合约开发者指南
 
 * [Resolving Names On-chain](contract-developer-guide/resolving-names-on-chain.md)
-* [Writing a Resolver](contract-developer-guide/writing-a-resolver.md)
-* [Writing a Registrar](contract-developer-guide/writing-a-registrar.md)
+* [编写一个解析器](contract-developer-guide/writing-a-resolver.md)
+* [编写一个注册器](contract-developer-guide/writing-a-registrar.md)
 * [ENS Discussion Forum](https://discuss.ens.domains/)
 * [ENS Support Chat](https://gitter.im/ethereum/go-ethereum/name-registry)
 
