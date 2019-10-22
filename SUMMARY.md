@@ -10,7 +10,7 @@
 
 ## Dapp开发者指南
 
-* [ENS Enabling your DApp](dapp-developer-guide/ens-enabling-your-dapp.md)
+* [在你的DApp上启用ENS](dapp-developer-guide/ens-enabling-your-dapp.md)
 * [ENS Libraries](dapp-developer-guide/ens-libraries.md)
 * [Working with ENS](dapp-developer-guide/working-with-ens.md)
 * [Resolving Names](dapp-developer-guide/resolving-names.md)
