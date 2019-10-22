@@ -46,7 +46,7 @@ DNSSEC（DNS安全扩展）构建了一个从ICANN（.）签署的根密钥开�
 
 #### 如果我拥有`myname.xyz`这个DNS域名，那我可以声明`myname.eth`的所有权吗?
 
-你可能把这事儿和[ENS短域名预订](https://medium.com/the-ethereum-name-service/timeline-for-3-6-character-name-reservation-auction-and-instant-registrations-e39aa2f89dc9)给搞混了。通过集成DNSSEC，您只能使用一个顶级域名（TLD）声明对应的完成相同的ENS名称，而`.eth`是完全独立管理的。
+你可能把这事儿和[ENS短域名预订](https://medium.com/the-ethereum-name-service/timeline-for-3-6-character-name-reservation-auction-and-instant-registrations-e39aa2f89dc9)给搞混了。通过集成DNSSEC，您只能使用一个顶级域名（TLD）声明对应的完成相同的ENS域名，而`.eth`是完全独立管理的。
 
 #### 如果我注册了一个域名，
 
