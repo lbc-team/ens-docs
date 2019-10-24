@@ -24,7 +24,7 @@ DNSSEC（DNS安全扩展）构建了一个从ICANN（.）签署的根密钥开�
 
 #### 第二步：添加一条文本（TXT）记录
 
-为了确认一个DNS域名的所有权应该被赋予哪个Ethereum地址，ENS上的DNS注册器会查询一条具有特定名称和格式的TXT记录。比如要声明mydomain.xyz的所有权，就需要在DNS管理器中为\_ens.mydomain.xyz添加一条TXT记录，这条TXT记录的文本数据的格式为a=0x1234...，其中的0x1234...就是需要获得ENS域名控制权的Ethereum地址。
+为了确认一个DNS域名的所有权应该被赋予哪个以太坊地址，ENS上的DNS注册器会查询一条具有特定名称和格式的TXT记录。比如要声明mydomain.xyz的所有权，就需要在DNS管理器中为\_ens.mydomain.xyz添加一条TXT记录，这条TXT记录的文本数据的格式为a=0x1234...，其中的0x1234...就是需要获得ENS域名控制权的以太坊地址。
 
 ![step2: add text](https://discuss.ens.domains/uploads/default/optimized/1X/5177864685d2c4ca9b6e25bd23a1a7c3a80b7fbd_2_1378x940.jpeg)
 
