@@ -68,5 +68,5 @@ function node(address addr) public pure returns (bytes32)
 Resolver public defaultResolver;
 ```
 
-返回反向注册器用于`setName`的解析器合约的地址。
+返回`反向注册器`用于`setName`的解析器合约的地址。
 
