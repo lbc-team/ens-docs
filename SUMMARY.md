@@ -16,11 +16,11 @@
 * [域名解析](dapp-developer-guide/resolving-names.md)
 * [域名管理](dapp-developer-guide/managing-names.md)
 * [域名注册和续费](dapp-developer-guide/registering-and-renewing-names.md)
-* [ENS Front-End Design Guidelines](dapp-developer-guide/front-end-design-guidelines.md)
+* [ENS前端设计指南](dapp-developer-guide/front-end-design-guidelines.md)
 
 ## 智能合约API参考资料
 
-* [Name Processing](contract-api-reference/name-processing.md)
+* [域名处理](contract-api-reference/name-processing.md)
 * [ENS](contract-api-reference/ens.md)
 * [ReverseRegistrar](contract-api-reference/reverseregistrar.md)
 * [TestRegistrar](contract-api-reference/testregistrar.md)

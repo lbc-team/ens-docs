@@ -1,8 +1,7 @@
 ---
 description: >-
-  ENS is a tool to simplify the experience for your users. Here are a series of
-  guidelines and tools that will help you make design choices and implement the
-  best ENS user experience.
+  ENS是一个简化用户体验的工具。
+  这里有一系列的使用指南和工具，将帮助您选择合适的设计并实现最佳的ENS用户体验。
 ---
 
 # ENS前端设计指南
