@@ -22,7 +22,7 @@
 
 * [域名处理](contract-api-reference/name-processing.md)
 * [ENS](contract-api-reference/ens.md)
-* [ReverseRegistrar](contract-api-reference/reverseregistrar.md)
+* [反向注册器](contract-api-reference/reverseregistrar.md)
 * [TestRegistrar](contract-api-reference/testregistrar.md)
 * [PublicResolver](contract-api-reference/publicresolver.md)
 * [.eth Permanent Registrar](contract-api-reference/.eth-permanent-registrar/README.md)
