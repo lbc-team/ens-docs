@@ -1,7 +1,7 @@
 # Terminology
 
-* **标签（label）**: 一个域名的独立组成部分，比如'alice.eth'中的'alice'.
-* **标签散列（labelhash）**: 单个标签的keccak256散列.
+* **标签（label）**: 一个域名的独立组成部分，比如'alice.eth'中的'alice'。
+* **标签散列（labelhash）**: 单个标签的keccak256散列。
 * **域名（name）**: ENS标识符，如'alice.eth'，一个ENS域名可能由多个独立部分（标签）组成，标签之间用点分隔。
 * **Namehash**: 用于处理ENS域名并返回唯一标识该域名的加密散列的算法。Namehash以域名作为输入，并生成一个 **Node（节点）**。
 * **节点（node）**: 唯一标识域名的加密散列。（译注：节点即是域名经过Namehash计算的结果，后文中有些地方的提到的节点，可以理解为ENS域名）
