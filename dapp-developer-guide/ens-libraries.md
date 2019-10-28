@@ -11,9 +11,9 @@ ENS支持多种主流语言。如果有些你知道的ENS库没有在本页面�
 
 #### 我应该使用哪个Javascript库?
 
-如果您用过web3.js，并且不需要使用创建子域名、转移所有权或更新解析器等功能，那么你可以使用web3.js库中对ENS的支持。
+如果你用过web3.js，并且不需要使用创建子域名、转移所有权或更新解析器等功能，那么你可以使用web3.js库中对ENS的支持。
 
-如果您用过ethjs，并且只需要对ENS域名进行正向和反向解析，那么你可以使用ethjs库中对ENS的支持。
+如果你用过ethjs，并且只需要对ENS域名进行正向和反向解析，那么你可以使用ethjs库中对ENS的支持。
 
 如果你用过ethers.js，并且只需要对ENS域名进行正向和反向解析，那么你可以使用ethers.js库中对ENS的支持。
 
@@ -24,8 +24,8 @@ ENS支持多种主流语言。如果有些你知道的ENS库没有在本页面�
 当前所有的ENS智能合约都是[Truffle](https://truffleframework.com)项目，而且是作为npm模块（比如：[ENS注册表](https://www.npmjs.com/package/@ensdomains/ens)）发布的。如果你想访问以上库都不支持的函数，可以通过npm安装智能合约。
 
 * [解析器](https://www.npmjs.com/package/@ensdomains/resolver) = `Resolver.sol`包含了所有的函数名（包括已经弃用的函数，比如：`content`）
-* [永久注册器](https://www.npmjs.com/package/@ensdomains/ethregistrar)
-* [注册表和旧注册器](https://www.npmjs.com/package/@ensdomains/ens)
+* [永久注册中心](https://www.npmjs.com/package/@ensdomains/ethregistrar)
+* [注册表和旧注册中心](https://www.npmjs.com/package/@ensdomains/ens)
 
 字节码和ABI是预编译的，可以从模块中导入。
 

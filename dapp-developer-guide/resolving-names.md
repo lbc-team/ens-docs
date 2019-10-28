@@ -62,7 +62,7 @@ address = ns.address('alice.eth')
 String address = ens.resolve("alice.eth");
 ```
 
-web3j同样支持在任何需要使用地址的地方也可以使用ENS域名，所以您通常不需要直接与`EnsResolver`对象交互。例如，要实例化一个合约接口，你可以这样做：
+web3j同样支持在任何需要使用地址的地方也可以使用ENS域名，所以你通常不需要直接与`EnsResolver`对象交互。例如，要实例化一个合约接口，你可以这样做：
 
 ```java
 YourSmartContract contract = YourSmartContract.load(
@@ -93,10 +93,10 @@ YourSmartContract contract = YourSmartContract.load(
 
 “常规”解析实现了从域名到地址的映射，而反向解析是指从地址映射回域名或其他元数据。ENS支持反向解析，以便应用程序用ENS域名代替显示十六进制地址。
 
-反向解析是通过专用域名 _addr.reverse_ 和解析器的`name()`函数实现的。_addr.reverse_ 的所有权属于一个专用的注册器合约，该合约将子域名分配给相应地址的所有者。例如，地址 _0x314159265dd8dbb310642f98f50c066173c1259b_ 可以要求使用 _314159265dd8dbb310642f98f50c066173c1259b.addr.reverse_，并设置解析器和解析记录。通过这个解析器的`name()`函数可以取得与该地址关联的域名。
+反向解析是通过专用域名 _addr.reverse_ 和解析器的`name()`函数实现的。_addr.reverse_ 的所有权属于一个专用的注册中心合约，该合约将子域名分配给相应地址的所有者。例如，地址 _0x314159265dd8dbb310642f98f50c066173c1259b_ 可以要求使用 _314159265dd8dbb310642f98f50c066173c1259b.addr.reverse_，并设置解析器和解析记录。通过这个解析器的`name()`函数可以取得与该地址关联的域名。
 
 {% hint style="danger" %}
-ENS并不强制要求反向记录的准确性。例如，每个人都可以声明其地址的域名为“alice.eth”。所以，为了确保声明是准确的，您必须始终对返回的域名执行正向解析，并检查正向解析得到的地址是否与原始地址匹配。
+ENS并不强制要求反向记录的准确性。例如，每个人都可以声明其地址的域名为“alice.eth”。所以，为了确保声明是准确的，你必须始终对返回的域名执行正向解析，并检查正向解析得到的地址是否与原始地址匹配。
 {% endhint %}
 
 大多数ENS库提供了执行反向解析的功能：

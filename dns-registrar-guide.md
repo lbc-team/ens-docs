@@ -1,4 +1,4 @@
-# DNS注册器指南
+# DNS注册中心指南
 
 ### 介绍
 
@@ -8,15 +8,15 @@ DNSSEC（DNS安全扩展）构建了一个从ICANN（.）签署的根密钥开�
 
 #### 第一步：设置DNSSEC签名
 
-第一次登陆[ENS管理器](https://app.ens.domains/)时，您将看到如下内容。
+第一次登陆[ENS管理器](https://app.ens.domains/)时，你将看到如下内容。
 
 ![step1: DNSSEC not enabled](https://discuss.ens.domains/uploads/default/optimized/1X/946d32d7bf60e53ccafc79eb93e4479d3437e307_2_1378x912.jpeg)
 
-如果您的DNS服务商已经支持DNSSEC签名，那么只需在DNS管理器上启用该选项。
+如果你的DNS服务商已经支持DNSSEC签名，那么只需在DNS管理器上启用该选项。
 
 ![google cloud](https://discuss.ens.domains/uploads/default/optimized/1X/9e7962d3ba098f1fcf49780ec1c5cafea28e7eb8_2_1380x660.png)
 
-如果您的DNS服务商不支持DNSSEC签名，那你就得将域名迁移到其他支持DNSSEC签名的服务商。我们推荐[EasyDNS](https://www.easydns.com)或者[Google Cloud DNS](https://cloudplatform.googleblog.com/2017/11/DNSSEC-now-available-in-Cloud-DNS.html)。EasyDNS的DNSSEC配置向导请看[这里](https://fusion.easydns.com/Knowledgebase/Article/View/18/7/dnssec)，Google的DNSSEC配置向导请看[这里](https://cloud.google.com/dns/dnssec-config)。
+如果你的DNS服务商不支持DNSSEC签名，那你就得将域名迁移到其他支持DNSSEC签名的服务商。我们推荐[EasyDNS](https://www.easydns.com)或者[Google Cloud DNS](https://cloudplatform.googleblog.com/2017/11/DNSSEC-now-available-in-Cloud-DNS.html)。EasyDNS的DNSSEC配置向导请看[这里](https://fusion.easydns.com/Knowledgebase/Article/View/18/7/dnssec)，Google的DNSSEC配置向导请看[这里](https://cloud.google.com/dns/dnssec-config)。
 
 无论你选择了哪家DNS服务商，都要确保你选择的RSA签名和SHA256哈希算法。
 
@@ -24,7 +24,7 @@ DNSSEC（DNS安全扩展）构建了一个从ICANN（.）签署的根密钥开�
 
 #### 第二步：添加一条文本（TXT）记录
 
-为了确认一个DNS域名的所有权应该被赋予哪个以太坊地址，ENS上的DNS注册器会查询一条具有特定名称和格式的TXT记录。比如要声明mydomain.xyz的所有权，就需要在DNS管理器中为\_ens.mydomain.xyz添加一条TXT记录，这条TXT记录的文本数据的格式为a=0x1234...，其中的0x1234...就是需要获得ENS域名控制权的以太坊地址。
+为了确认一个DNS域名的所有权应该被赋予哪个以太坊地址，ENS上的DNS注册中心会查询一条具有特定名称和格式的TXT记录。比如要声明mydomain.xyz的所有权，就需要在DNS管理器中为\_ens.mydomain.xyz添加一条TXT记录，这条TXT记录的文本数据的格式为a=0x1234...，其中的0x1234...就是需要获得ENS域名控制权的以太坊地址。
 
 ![step2: add text](https://discuss.ens.domains/uploads/default/optimized/1X/5177864685d2c4ca9b6e25bd23a1a7c3a80b7fbd_2_1378x940.jpeg)
 
@@ -46,11 +46,11 @@ DNSSEC（DNS安全扩展）构建了一个从ICANN（.）签署的根密钥开�
 
 #### 如果我拥有`myname.xyz`这个DNS域名，那我可以声明`myname.eth`的所有权吗?
 
-你可能把这事儿和[ENS短域名预订](https://medium.com/the-ethereum-name-service/timeline-for-3-6-character-name-reservation-auction-and-instant-registrations-e39aa2f89dc9)给搞混了。通过集成DNSSEC，您只能使用一个顶级域名（TLD）声明对应的完成相同的ENS域名，而`.eth`是完全独立管理的。
+你可能把这事儿和[ENS短域名预订](https://medium.com/the-ethereum-name-service/timeline-for-3-6-character-name-reservation-auction-and-instant-registrations-e39aa2f89dc9)给搞混了。通过集成DNSSEC，你只能使用一个顶级域名（TLD）声明对应的完成相同的ENS域名，而`.eth`是完全独立管理的。
 
 #### 如果我注册了一个域名，
 
-不同于`.eth`的永久注册器，在ENS上进行注册的DNS域名没有注册人（`registrant`）这种可以转移控制权限的角色。如果您想将所有权从当前注册地址转移到其他地址，请从您的DNS管理器更新相应的DNS记录并在ENS管理器中点击转移按钮“Transfer”。
+不同于`.eth`的永久注册中心，在ENS上进行注册的DNS域名没有注册人（`registrant`）这种可以转移控制权限的角色。如果你想将所有权从当前注册地址转移到其他地址，请从你的DNS管理器更新相应的DNS记录并在ENS管理器中点击转移按钮“Transfer”。
 
 我们目前还没有启用删除所有权的功能，尽管如此，你可以将所有者设置为`a= 0x0000000000000000000000000000000000000000`，然后点击转移按钮“Transfer”，就可以达到同样的目的。
 

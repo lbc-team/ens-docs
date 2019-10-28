@@ -1,15 +1,15 @@
-# 管理员
+# 控制器
 
 [源代码](https://github.com/ensdomains/ethregistrar/blob/master/contracts/ETHRegistrarController.sol)
 
-本节要讲的是.eth注册器管理员（[ETHRegistrarController](https://github.com/ensdomains/ethregistrar/blob/master/contracts/ETHRegistrarController.sol)）的各个部分，这些内容与那些编写注册器管理员交互工具的开发者息息相关。为简洁起见，省略了注册器所有者特有的功能。
+本节要讲的是.eth注册中心控制器（[ETHRegistrarController](https://github.com/ensdomains/ethregistrar/blob/master/contracts/ETHRegistrarController.sol)）的各个部分，这些内容与那些编写注册中心控制器交互工具的开发者息息相关。为简洁起见，省略了注册中心所有者特有的功能。
 
-管理员只与明文标签一起工作（例如，“alice”代表“alice.eth”）。
+控制器只与明文标签一起工作（例如，“alice”代表“alice.eth”）。
 
-为了防止域名抢注，.eth注册器管理员需要对新域名注册(但不需要对续期)执行一个“委托-揭示”的过程。要注册一个域名，用户必须:
+为了防止域名抢注，.eth注册中心控制器需要对新域名注册(但不需要对续期)执行一个“委托-揭示”的过程。要注册一个域名，用户必须:
 
 1. 利用待注册域名和一个秘密值生成一个固定长度的散列。
-2. 将第1步中生成的定长散列提交给管理员。
+2. 将第1步中生成的定长散列提交给控制器。
 3. 等待至少1分钟，但别超过24小时。
 4. 将这个域名的注册请求以及来自第1步的秘密值一起提交。
 
@@ -104,7 +104,7 @@ function rentPrice(string name, uint duration) view public returns(uint);
 function valid(string name) public view returns(bool);
 ```
 
-如果这个域名符合该管理员对注册的有效性要求(比如它满足长度要求)，则`valid`返回true。
+如果这个域名符合该控制器对注册的有效性要求(比如它满足长度要求)，则`valid`返回true。
 
 ### 检查域名的可用性
 
@@ -112,9 +112,9 @@ function valid(string name) public view returns(bool);
 function available(string name) public view returns(bool);
 ```
 
-如果这个域名符合该管理员对注册的有效性要求，并且可以注册，则`available`返回true。[在这个函数内部](https://github.com/ensdomains/ethregistrar/blob/master/contracts/ETHRegistrarController.sol#L55-L58)，使用了`valid`函数(上面的)和[注册器](registrar.md#check-name-availability)合约中的`available`函数，`available`函数同时检查域名在旧版ENS注册器和当前ENS注册器中的可用性。
+如果这个域名符合该控制器对注册的有效性要求，并且可以注册，则`available`返回true。[在这个函数内部](https://github.com/ensdomains/ethregistrar/blob/master/contracts/ETHRegistrarController.sol#L55-L58)，使用了`valid`函数(上面的)和[注册中心](registrar.md#check-name-availability)合约中的`available`函数，`available`函数同时检查域名在旧版ENS注册中心和当前ENS注册中心中的可用性。
 
-调用者**应该**使用这个函数来检查域名是否可以注册，而不要用注册器合约中的`available`函数，后者不检查域名的长度。
+调用者**应该**使用这个函数来检查域名是否可以注册，而不要用注册中心合约中的`available`函数，后者不检查域名的长度。
 
 ### 计算委托散列
 
@@ -155,7 +155,7 @@ function register(string name, address owner, uint duration, bytes32 secret) pub
 event NameRegistered(string name, bytes32 indexed label, address indexed owner, uint cost, uint expires);
 ```
 
-调用成功还会连带注册器触发一个[域名注册事件](registrar.md#name-registered)，并连带ENS注册表触发一个[NewOwner事件](../ens.md#set-subdomain-owner)。
+调用成功还会连带注册中心触发一个[域名注册事件](registrar.md#name-registered)，并连带ENS注册表触发一个[NewOwner事件](../ens.md#set-subdomain-owner)。
 
 ### 延长域名有效期
 
@@ -171,5 +171,5 @@ function renew(string name, uint duration) external payable;
 event NameRenewed(string name, bytes32 indexed label, uint cost, uint expires);
 ```
 
-调用成功还会连带注册器触发一个[域名续期事件](registrar.md#name-renewed)。
+调用成功还会连带注册中心触发一个[域名续期事件](registrar.md#name-renewed)。
 

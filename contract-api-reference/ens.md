@@ -84,7 +84,7 @@ function setSubnodeOwner(bytes32 node, bytes32 label, address owner) external;
 
 创建一个新的子域名`node`，将其所有权分配给指定的`owner`。如果该子域名已经存在，则重新分配所有权，但解析器和TTL保持不变。
 
-`label`是要创建的子域名标签的keccak256散列。例如，如果您拥有 _alice.eth_ 并想创建子域名 _iam.alice.eth_，就需要将`namehash('alice.eth')`作为`node`，将`keccak256('iam')`作为`label`。
+`label`是要创建的子域名标签的keccak256散列。例如，如果你拥有 _alice.eth_ 并想创建子域名 _iam.alice.eth_，就需要将`namehash('alice.eth')`作为`node`，将`keccak256('iam')`作为`label`。
 
 该操作会触发以下事件：
 
