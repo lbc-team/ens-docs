@@ -112,7 +112,7 @@ function valid(string name) public view returns(bool);
 function available(string name) public view returns(bool);
 ```
 
-如果这个域名符合该控制器对注册的有效性要求，并且可以注册，则`available`返回true。[在这个函数内部](https://github.com/ensdomains/ethregistrar/blob/master/contracts/ETHRegistrarController.sol#L55-L58)，使用了`valid`函数(上面的)和[注册中心](registrar.md#check-name-availability)合约中的`available`函数，`available`函数同时检查域名在旧版ENS注册中心和当前ENS注册中心中的可用性。
+如果这个域名符合该控制器对注册的有效性要求，并且可以注册，则`available`返回true。[在这个函数内部](https://github.com/ensdomains/ethregistrar/blob/master/contracts/ETHRegistrarController.sol#L55-L58)，使用了`valid`函数(上面的)和[注册中心](registrar.md#jian-cha-yu-ming-de-ke-yong-xing)合约中的`available`函数，`available`函数同时检查域名在旧版ENS注册中心和当前ENS注册中心中的可用性。
 
 调用者**应该**使用这个函数来检查域名是否可以注册，而不要用注册中心合约中的`available`函数，后者不检查域名的长度。
 
@@ -132,7 +132,7 @@ function makeCommitment(string name, address owner, bytes32 secret) pure public 
 function commit(bytes32 commitment) public;
 ```
 
-`commit`用于提交预委托，这个预委托是通过调用[makeCommitment](controller.md#calculate-commitment-hash)生成的。
+`commit`用于提交预委托，这个预委托是通过调用[makeCommitment](controller.md#ji-suan-wei-tuo-san-lie)生成的。
 
 ### 注册域名
 
@@ -155,7 +155,7 @@ function register(string name, address owner, uint duration, bytes32 secret) pub
 event NameRegistered(string name, bytes32 indexed label, address indexed owner, uint cost, uint expires);
 ```
 
-调用成功还会连带注册中心触发一个[域名注册事件](registrar.md#name-registered)，并连带ENS注册表触发一个[NewOwner事件](../ens.md#set-subdomain-owner)。
+调用成功还会连带注册中心触发一个[域名注册事件](registrar.md#yu-ming-zhu-ce-shi-jian)，并连带ENS注册表触发一个[NewOwner事件](../ens.md#she-zhi-zi-yu-ming-suo-you-zhe)。
 
 ### 延长域名有效期
 
@@ -171,5 +171,5 @@ function renew(string name, uint duration) external payable;
 event NameRenewed(string name, bytes32 indexed label, uint cost, uint expires);
 ```
 
-调用成功还会连带注册中心触发一个[域名续期事件](registrar.md#name-renewed)。
+调用成功还会连带注册中心触发一个[域名续期事件](registrar.md#yu-ming-xu-qi-shi-jian)。
 

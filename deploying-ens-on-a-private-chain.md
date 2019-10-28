@@ -2,7 +2,7 @@
 
 如果你希望在自己的网络上部署ENS，或者在公共网络上部署自己的ENS副本，本指南将向你展示如何进行部署。如果你想使用现有的ENS部署，请参阅[域名解析](dapp-developer-guide/resolving-names.md)、[域名管理](dapp-developer-guide/managing-names.md)和[域名注册和续费](dapp-developer-guide/registering-and-renewing-names.md)
 
-为了简单起见，在本页面我们会用到Javascript、Web3和npm上的[Truffle框架](https://truffleframework.com/)。完整的部署文件示例可以[在这个页面的底部](deploying-ens-on-a-private-chain.md#migration-file-example)查看。
+为了简单起见，在本页面我们会用到Javascript、Web3和npm上的[Truffle框架](https://truffleframework.com/)。完整的部署文件示例可以[在这个页面的底部](deploying-ens-on-a-private-chain.md#bu-shu-wen-jian-shi-li)查看。
 
 ## 引用合约
 

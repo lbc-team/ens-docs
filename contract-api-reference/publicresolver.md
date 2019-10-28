@@ -19,7 +19,7 @@ description: 默认的公共解析器。
 * [EIP1577](https://eips.ethereum.org/EIPS/eip-1577) - Content hash support \(`contenthash()`\).
 
 {% hint style="warning" %}
-虽然`公共解析器`提供了一个方便的默认解析器，但仍然存在许多其他的解析器实例和版本。调用者**不能**假设域名使用的是公共解析器的最新版本，或是解析器包含了这里描述的所有方法。要检查一个解析器是否支持某个特性，请参见[接口检查支持](publicresolver.md#check-interface-support)。
+虽然`公共解析器`提供了一个方便的默认解析器，但仍然存在许多其他的解析器实例和版本。调用者**不能**假设域名使用的是公共解析器的最新版本，或是解析器包含了这里描述的所有方法。要检查一个解析器是否支持某个特性，请参见[接口检查支持](publicresolver.md#jie-kou-jian-cha-zhi-chi)。
 {% endhint %}
 
 ## 接口检查支持
