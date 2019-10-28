@@ -2,7 +2,7 @@
 # 编写注册中心
 
 A registrar in ENS is simply any contract that owns a name, and allocates subdomains of it according to some set of rules defined in the contract code. A trivial first in first served contract is demonstrated below:
-ENS中的注册中心就是一个拥有某个域名所有权的合约，并根据合约代码中定义的一组规则分配它的子域名。一个“先到先得”式的简易合约如下:
+ENS中的注册中心就是一个拥有某个域名所有权的合约，并根据合约代码中定义的一组规则分配它的子域名。一个"先到先得"式的简易合约如下:
 
 ```text
 contract FIFSRegistrar {

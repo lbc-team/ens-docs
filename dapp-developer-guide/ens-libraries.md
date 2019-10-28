@@ -4,7 +4,7 @@ ENS支持多种主流语言。如果有些你知道的ENS库没有在本页面�
 
 ### Javascript
 
-* [ethereum-ens](https://www.npmjs.com/package/ethereum-ens)，由ENS开发人员维护
+* [ethereum-ens](https://www.npmjs.com/package/ethereum-ens)，由ENS开发者维护
 * [ethjs-ens](https://www.npmjs.com/package/ethjs-ens)
 * [ethers.js](https://github.com/ethers-io/ethers.js)
 * [web3.js](https://web3js.readthedocs.io/en/1.0/web3-eth-ens.html)
