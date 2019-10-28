@@ -28,7 +28,7 @@
 * [.eth永久注册器](contract-api-reference/.eth-permanent-registrar/README.md)
   * [注册器](contract-api-reference/.eth-permanent-registrar/registrar.md)
   * [管理员](contract-api-reference/.eth-permanent-registrar/controller.md)
-* [DNS Registrar](https://dnsregistrar.readthedocs.io/en/doc)
+* [DNS注册器](https://dnsregistrar.readthedocs.io/en/doc)
 * [DNSProvejs](https://dnsprovejs.readthedocs.io)
 
 ## 合约开发指南
@@ -36,6 +36,6 @@
 * [链上域名解析](contract-developer-guide/resolving-names-on-chain.md)
 * [编写一个解析器](contract-developer-guide/writing-a-resolver.md)
 * [编写一个注册器](contract-developer-guide/writing-a-registrar.md)
-* [ENS Discussion Forum](https://discuss.ens.domains/)
-* [ENS Support Chat](https://gitter.im/ethereum/go-ethereum/name-registry)
+* [ENS讨论区](https://discuss.ens.domains/)
+* [ENS在线支持](https://gitter.im/ethereum/go-ethereum/name-registry)
 
