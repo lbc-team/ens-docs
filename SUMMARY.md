@@ -8,7 +8,7 @@
 * [在私有链上部署ENS](deploying-ens-on-a-private-chain.md)
 * [DNS注册器指南](dns-registrar-guide.md)
 
-## Dapp开发者指南
+## Dapp开发指南
 
 * [在DApp中启用ENS](dapp-developer-guide/ens-enabling-your-dapp.md)
 * [ENS库](dapp-developer-guide/ens-libraries.md)
@@ -18,7 +18,7 @@
 * [域名注册和续费](dapp-developer-guide/registering-and-renewing-names.md)
 * [ENS前端设计指南](dapp-developer-guide/front-end-design-guidelines.md)
 
-## 智能合约API参考资料
+## 合约API参考
 
 * [域名处理](contract-api-reference/name-processing.md)
 * [注册表](contract-api-reference/ens.md)
@@ -31,9 +31,9 @@
 * [DNS Registrar](https://dnsregistrar.readthedocs.io/en/doc)
 * [DNSProvejs](https://dnsprovejs.readthedocs.io)
 
-## 智能合约开发者指南
+## 合约开发指南
 
-* [Resolving Names On-chain](contract-developer-guide/resolving-names-on-chain.md)
+* [链上域名解析](contract-developer-guide/resolving-names-on-chain.md)
 * [编写一个解析器](contract-developer-guide/writing-a-resolver.md)
 * [编写一个注册器](contract-developer-guide/writing-a-registrar.md)
 * [ENS Discussion Forum](https://discuss.ens.domains/)

@@ -155,7 +155,7 @@ function register(string name, address owner, uint duration, bytes32 secret) pub
 event NameRegistered(string name, bytes32 indexed label, address indexed owner, uint cost, uint expires);
 ```
 
-调用成功还会使注册器触发一个[域名注册事件](registrar.md#name-registered)，并使ENS注册表触发一个[NewOwner事件](../ens.md#set-subdomain-owner)。
+调用成功还会连带注册器触发一个[域名注册事件](registrar.md#name-registered)，并连带ENS注册表触发一个[NewOwner事件](../ens.md#set-subdomain-owner)。
 
 ### 延长域名有效期
 
@@ -171,5 +171,5 @@ function renew(string name, uint duration) external payable;
 event NameRenewed(string name, bytes32 indexed label, uint cost, uint expires);
 ```
 
-调用成功还会使注册器触发一个[域名续期事件](registrar.md#name-renewed)。
+调用成功还会连带注册器触发一个[域名续期事件](registrar.md#name-renewed)。
 
