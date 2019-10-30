@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 注册中心
 
 [源代码](https://github.com/ensdomains/ethregistrar/blob/master/contracts/BaseRegistrarImplementation.sol)
@@ -31,63 +32,139 @@ ENS中的每个域名都有一个所有者，域名所有者可以将域名转�
 ## 读取操作
 
 ### 获取域名到期时间
+=======
+# Registrar
+
+[Source](https://github.com/ensdomains/ethregistrar/blob/master/contracts/BaseRegistrarImplementation.sol)
+
+This contract implements the core functionality of the permanent registrar, with the following features:
+
+* The owner of the registrar may add and remove 'controllers'.
+* Controllers may register new domains and extend the expiry of \(renew\) existing domains. They can not change the ownership or reduce the expiration time of existing domains.
+* Name owners may transfer ownership to another address.
+* Name owners may reclaim ownership in the ENS registry if they have lost it.
+* Owners of names in the legacy registrar may transfer them to the new registrar, during the 1 year transition period. When they do so, their deposit is returned to them in its entirety.
+
+This section documents the parts of the registrar interface relevant to implementers of tools that interact with it. Functionality exclusive to the registrar owner or to controllers is omitted for brevity.
+
+The registrar works exclusively with label hashes - the `keccak256` of the first component of the label \(eg, `keccak256('ens')` for `ens.eth`\). For compatibility with ERC721, these are expressed as uint256 values rather than bytes32, but can be cast backwards and forwards transparently. The namehash of a name can be derived by computing `keccak256(baseNode, labelHash)`, where `basenode` is the namehash of the TLD the registrar manages - eg, `namehash('eth')`.
+
+Registrations and renewals are handled via the [controller](controller.md).
+
+## Names and Registrations
+
+All names inside ENS have an owner. The owner of a name can transfer the name to a new owner, set a resolver, and create and reassign subdomains. This functionality is all contained in the [ENS registry](../ens.md).
+
+Allocation of names directly under .eth \(eg, second-level domains ending with .eth, such as _alice.eth_\) is governed by the .eth Permanent Registrar, described here. While buying a name from the registrar grants ownership of it in ENS, the registrar itself keeps independent track of who owns the **registration**. The concept of a **registrant** - the owner of a registration - is unique to the .eth permanent registrar.
+
+The registrant of a name can transfer the registration to another account, and they can recover ownership of the name by calling [reclaim](registrar.md#reclaim-ens-record), which resets ownership of the ENS name to the registrant's account.
+
+Separating the concept of owning a name from owning a registration makes it possible to more easily build systems that make automated updates to ENS. The registrant can transfer ownership of the name to another account or to a smart contract that manages records, subdomains, etc, while still retaining the ability to recover ownership for upgrades, or in the case of a compromise.
+
+When thinking about ownership, it's important to be clear whether you're considering ownership of the **name** or the **registration**.
+
+## Read Operations
+
+### Get Name Expiry
+>>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 function nameExpires(uint256 label) external view returns(uint);
 ```
 
+<<<<<<< HEAD
 返回当前域名到期的unix时间戳，未注册的域名或是尚未从旧版注册中心迁移的域名将返回0。
 
 ### 检查域名的可用性
+=======
+Returns the unix timestamp at which a registration currently expires. Names that do not exist or are not yet migrated from the legacy registrar will return 0.
+
+### Check Name Availability
+>>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 function available(uint256 label) public view returns(bool);
 ```
 
+<<<<<<< HEAD
 如果域名可以注册，则返回`true`。考虑到旧版注册中心上那些尚未迁移的已注册域名，注册中心的控制器可能会对域名注册增加一些超出注册中心合约的限制条件（例如，最小域名长度），所以该函数**不应该**用于检查用户是否可以注册某个域名。要检查用户是否可以注册某个域名，应该[通过控制器检查域名的可用性](controller.md#jian-cha-yu-ming-de-ke-yong-xing)。
 
 ### 获取迁移截止时间
+=======
+Returns `true` if a name is available for registration. Takes into account not-yet-migrated registrations from the legacy registrar. Registrar controllers may impose more restrictions on registrations than this contract \(for example, a minimum name length\), so this function **should not** be used to check if a name can be registered by a user. To check if a name can be registered by a user, [check name availablility via the controller](controller.md#check-name-availability).
+
+### Get Transfer Period End
+>>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 uint public transferPeriodEnds;
 ```
 
+<<<<<<< HEAD
 `transferPeriodEnds`记录着一个unix的迁移截止时间戳，这个时间到达后，就不能再从旧版注册中心进行注册迁移，且所有未迁移注册的域名都可以被重新注册。
 
 ### 获取控制器状态
+=======
+`transferPeriodEnds` documents the unix timestamp at which it is no longer possible to migrate over registrations from the legacy registrar, and any non-migrated registrations become available for registration by anyone.
+
+### Get Controller Status
+>>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 mapping(address=>bool) public controllers;
 ```
 
+<<<<<<< HEAD
 `controllers`允许调用者检查某个地址是否被授权为注册中心的控制器。
 
 ### 检查域名授权
+=======
+`controllers` allows callers to check if the supplied address is authorized as a registrar controller.
+
+### Check Token Approval
+>>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 function getApproved(uint256 tokenId) public view returns (address operator);
 ```
 
+<<<<<<< HEAD
 返回该域名的许可操作员的地址。（LBB译注：如果不理解这里的"许可"，请查阅有关以太坊approve操作的信息。）
 
 这个函数是ERC721的一部分。
 
 ### 检查所有域名授权
+=======
+Returns the address of the approved operator for this name.
+
+This function is part of ERC721.
+
+### Check All Tokens Approval
+>>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 function isApprovedForAll(address owner, address operator) public view returns (bool);
 ```
 
+<<<<<<< HEAD
 如果`operator`得到了可以转让`owner`的所有域名的授权，则返回true。
 
 这个函数是ERC721的一部分。
 
 ### 获取域名所有者
+=======
+Returns true if `operator` is authorized to transfer all tokens for `owner`.
+
+This function is part of ERC721.
+
+### Get Name Owner
+>>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 function ownerOf(uint256 label) external view returns(address);
 ```
 
+<<<<<<< HEAD
 `ownerOf`返回由标签的散列标识的注册的所有者的地址（LBB译注：即返回注册人的地址），如果注册不存在则返回0。尚未从旧版注册中心迁移的注册会被视为不存在的注册。
 
 这个函数是[ERC721](https://github.com/ensdomains/ens/blob/master/docs/ethregistrar.rst#id7)的一部分。
@@ -95,6 +172,15 @@ function ownerOf(uint256 label) external view returns(address);
 ## 写入操作
 
 ### 转让域名
+=======
+`ownerOf` returns the address that owns the registration identified by the label hash, or reverts if the registration does not exist. Registrations that have not yet been migrated from the legacy registrar are treated the same as registrations that do not exist.
+
+This function is part of [ERC721](https://github.com/ensdomains/ens/blob/master/docs/ethregistrar.rst#id7).
+
+## Write Operations
+
+### Transfer a Name
+>>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 function transferFrom(address from, address to, uint256 tokenId) public;
@@ -102,64 +188,112 @@ function safeTransferFrom(address from, address to, uint256 tokenId) public;
 function safeTransferFrom(address from, address to, uint256 tokenId, bytes memory data) public;
 ```
 
+<<<<<<< HEAD
 以上函数转让的是注册（LBB译注：即变更注册人）。
 
 它们按照[ERC721](https://github.com/ensdomains/ens/blob/master/docs/ethregistrar.rst#id9)中的规定来执行。
 
 实现一次成功转让会触发以下事件：
+=======
+These functions transfer the registration.
+
+They behave as specified in [ERC721](https://github.com/ensdomains/ens/blob/master/docs/ethregistrar.rst#id9).
+
+Emits the following event on a successful transfer:
+>>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 event Transfer(address indexed from, address indexed to, uint256 indexed tokenId);
 ```
 
+<<<<<<< HEAD
 ### 许可操作
+=======
+### Approve Operator
+>>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 function approve(address to, uint256 tokenId) public;
 function setApprovalForAll(address operator, bool _approved) public;
 ```
 
+<<<<<<< HEAD
 [ERC721](https://github.com/ensdomains/ens/blob/master/docs/ethregistrar.rst#id11)中记录了这些用于许可管理的函数的信息。
 
 ### 收回ENS所有权
+=======
+These functions manage approvals as documented in [ERC721](https://github.com/ensdomains/ens/blob/master/docs/ethregistrar.rst#id11).
+
+### Reclaim ENS Record
+>>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 function reclaim(uint256 label) external;
 ```
 
+<<<<<<< HEAD
 将ENS注册表中域名所有者的记录设置为该域名注册的所有者，该函数只能由注册的所有者调用。
 
 ## 事件
 
 ### 域名迁移事件
+=======
+Sets the owner record of the name in the ENS registry to match the owner of the registration in this registry. May only be called by the owner of the registration.
+
+## Events
+
+### Name Migrated
+>>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 event NameMigrated(uint256 indexed hash, address indexed owner, uint expires);
 ```
 
+<<<<<<< HEAD
 当域名从旧版注册中心迁出时，会触发此事件。
 
 ### 域名注册事件
+=======
+This event is emitted when a name is migrated from the legacy registrar.
+
+### Name Registered
+>>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 event NameRegistered(uint256 indexed hash, address indexed owner, uint expires);
 ```
 
+<<<<<<< HEAD
 当一个控制器注册一个新域名时会触发此事件。
 
 ### 域名续期事件
+=======
+This event is emitted when a controller registers a new name.
+
+### Name Renewed
+>>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 event NameRenewed(uint256 indexed hash, uint expires);
 ```
 
+<<<<<<< HEAD
 当一个控制器给一个域名续期（或注册）时会触发此事件。
 
 ### 转让事件
+=======
+This event is emitted when a controller renews \(extends the registration of\) a name.
+
+### Transfer
+>>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 event Transfer(address indexed from, address indexed to, uint256 indexed tokenId);
 ```
 
+<<<<<<< HEAD
 将注册转移到新所有者时会触发此事件。这与[ENS注册表](../ens.md)的转让事件不同，后者记录的是ENS的所有权转移。
+=======
+This event is emitted when registration is transferred to a new owner. This is distinct from the [ENS Registry](../ens.md)'s Transfer event, which records transfers of ownership of the ENS record.
+>>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 

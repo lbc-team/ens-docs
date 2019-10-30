@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ENS部署情况
 
 如果你使用的是[ENS库](dapp-developer-guide/ens-libraries.md)，它会自动连接所需的ENS部署地址。如果你需要直接与ENS交互，下面介绍的是当前所支持的部署情况。
@@ -18,3 +19,26 @@
 所有的测试网络都部署了.test注册中心，每个人都可以注册.test域名用作测试，.test域名的有效期是28天。
 
 此外，Ropsten测试网络还部署了.eth注册中心用于测试。
+=======
+# ENS Deployments
+
+If you are working with an [ENS library](dapp-developer-guide/ens-libraries.md), your library will automatically find the ENS deployment you need. If for whatever reason, you need to interact with ENS directly, details for the currently supported deployments are detailed here.
+
+The following are the official ENS registry deployments:
+
+* Mainnet, at [0x314159265dd8dbb310642f98f50c066173c1259b](https://etherscan.io/address/0x314159265dd8dbb310642f98f50c066173c1259b#code).
+* Ropsten, at [0x112234455c3a32fd11230c42e7bccd4a84e02010](https://ropsten.etherscan.io/address/0x112234455c3a32fd11230c42e7bccd4a84e02010).
+* Rinkeby, at [0xe7410170f87102df0055eb195163a03b7f2bff4a](https://rinkeby.etherscan.io/address/0xe7410170f87102df0055eb195163a03b7f2bff4a).
+* Goerli, at [0x112234455c3a32fd11230c42e7bccd4a84e02010](https://goerli.etherscan.io/address/0x112234455c3a32fd11230c42e7bccd4a84e02010).
+
+On mainnet, the following registrars are deployed:
+
+* .eth, using the auction registrar.
+* .xyz, via DNS integration
+* .luxe, via a [custom integration](http://join.luxe/) that allows any owner of a .luxe DNS name to use ENS.
+
+All test networks have the .test registrar deployed. This registrar permits anyone to instantly register a domain for testing purposes; these domains persist for 28 days.
+
+In addition, the Ropsten test network has a deployment of the .eth registrar for testing purposes.
+
+>>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb

@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 # ENS的使用
 
 在开始与ENS交互之前，首先要引用ENS注册表，引用ENS注册表的方式取决于你使用了哪个ENS库。
 
 下面的代码是基于Javascript的API（ethereum-ens、web3.js、ethjs-ens和ethers.js）的使用示例，这些代码适合运行在一个引入了`ethereum`对象的DApp浏览器中，比如安装了[metamask](https://metamask.github.io/metamask-docs/Main_Concepts/Getting_Started)的Chrome。
+=======
+# Working with ENS
+
+Before you can begin interacting with ENS, you will need to obtain a reference to the ENS registry. How you do this depends on the library you are using.
+
+Example code for the Javascript-based APIs \(ethereum-ens, web3.js, ethjs-ens, and ethers.js\) here expect that they are being run inside a DApp browser, such as Chrome with [metamask installed](https://metamask.github.io/metamask-docs/Main_Concepts/Getting_Started), which exposes the `ethereum` object.
+>>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 {% tabs %}
 {% tab title="ethereum-ens" %}
@@ -68,7 +76,13 @@ EnsResolver ens = new EnsResolver(web3j, 300 /* sync threshold, seconds */);
 {% endtab %}
 {% endtabs %}
 
+<<<<<<< HEAD
 一些web3库（ethers.js、web3j和web3.py ）已经内置了对域名解析的支持。在这些库中，只要可以使用地址的地方，都可以直接使用ENS域名，也就是说，除非你想手动解析域名或是进行其他特殊的ENS操作，否则你根本不需要直接与它们的ENS API交互。
 
 如果你的平台没有可用的库，你可以使用[这里](https://github.com/ensdomains/ens/blob/master/contracts/ENS.sol)的接口定义直接实例化ENS注册表合约。在[ENS部署情况](../ens-deployments.md)页面中可以找到各个网络的ENS注册表地址。
+=======
+Some web3 libraries - at present, ethers.js, web3j, and web3.py - have integrated support for name resolution. In these libraries, you can pass in an ENS name anywhere you can supply an address, meaning you do not need to interact directly with their ENS APIs unless you want to manually resolve names or do other ENS operations.
+
+If no library is available for your platform, you can instantiate the ENS registry contract directly using the interface definition [here](https://github.com/ensdomains/ens/blob/master/contracts/ENS.sol). Addresses for the ENS registry on each supported network are available in the [ENS Deployments](../ens-deployments.md) page.
+>>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 

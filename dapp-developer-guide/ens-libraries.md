@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ENS库
 
 ENS支持多种主流语言。如果有些你知道的ENS库没有在本页面陈列出来，请[向我们发起PR（pull request）](https://github.com/ensdomains/ens/compare)。
@@ -5,10 +6,20 @@ ENS支持多种主流语言。如果有些你知道的ENS库没有在本页面�
 ### Javascript
 
 * [ethereum-ens](https://www.npmjs.com/package/ethereum-ens)，由ENS开发者维护
+=======
+# ENS Libraries
+
+ENS support is available in many popular languages. If you know of a library that is not listed here, please [send us a PR](https://github.com/ensdomains/ens/compare).
+
+### Javascript
+
+* [ethereum-ens](https://www.npmjs.com/package/ethereum-ens), maintained by the ENS developers
+>>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 * [ethjs-ens](https://www.npmjs.com/package/ethjs-ens)
 * [ethers.js](https://github.com/ethers-io/ethers.js)
 * [web3.js](https://web3js.readthedocs.io/en/1.0/web3-eth-ens.html)
 
+<<<<<<< HEAD
 #### 我应该使用哪个Javascript库?
 
 如果你用过web3.js，并且不需要使用创建子域名、转移所有权或更新解析器等功能，那么你可以使用web3.js库中对ENS的支持。
@@ -28,6 +39,27 @@ ENS支持多种主流语言。如果有些你知道的ENS库没有在本页面�
 * [注册表和旧注册中心](https://www.npmjs.com/package/@ensdomains/ens)
 
 字节码和ABI是预编译的，可以从模块中导入。
+=======
+#### Which Javascript library should I use?
+
+If you are already using web3.js, and do not require functionality such as creating subdomains, transferring ownership, or updating resolvers, use web3.js's ENS support.
+
+If you are already using ethjs, and only need to do forward and reverse resolution of ENS names, use ethjs's ENS support.
+
+If you are already using ethers.js, and only need to do forward and reverse resolution of ENNS names, use ethers.js's ENS support.
+
+Otherwise, use ethereum-ens.
+
+#### Accessing smart contracts directly
+
+All the ENS smart contracts are [Truffle](https://truffleframework.com) projects and published as npm modules \(eg: [ENS registry](https://www.npmjs.com/package/@ensdomains/ens)\). If you want to access to functions none of the above libraries support you can install the smart contracts via npm.
+
+* [Resolver](https://www.npmjs.com/package/@ensdomains/resolver) = `Resolver.sol` contains all function names including the deprecated functions \(eg: `content`\)
+* [Permanent Registrar](https://www.npmjs.com/package/@ensdomains/ethregistrar)
+* [Registry and old Registrar](https://www.npmjs.com/package/@ensdomains/ens)
+
+The bytecode and abi are precompiled and can be imported from the modules.
+>>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 import { abi , bytecode } from '@ensdomains/ens/build/contracts/ENS.json'
@@ -54,7 +86,13 @@ import { abi , bytecode } from '@ensdomains/ens/build/contracts/ENS.json'
 
 * [delphereum](https://github.com/svanas/delphereum)
 
+<<<<<<< HEAD
 ## 后续工作
 
 选定使用哪个库以后，就可以通过阅读[ENS的使用](working-with-ens.md)，来学习如何在应用程序中使用你选择的ENS库。
+=======
+## Next Steps
+
+Once you've chosen a library, read [Working with ENS](working-with-ens.md) to learn how to use your chosen ENS library in your application.
+>>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
