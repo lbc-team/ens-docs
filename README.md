@@ -1,3 +1,7 @@
+---
+description: 本文档由[刘笨笨](https://liubenben.com)翻译，原版位于 http://docs.ens.domains 。文中标记“LBB译注”的地方是译者为便于读者理解，提供的注记。
+---
+
 # ENS介绍
 
 ENS（Ethereum Name Service）是以太坊域名服务，是一个基于以太坊区块链的分布式、开放和可扩展的命名系统。
