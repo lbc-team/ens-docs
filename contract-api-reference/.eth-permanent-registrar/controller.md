@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 控制器
 
 [源代码](https://github.com/ensdomains/ethregistrar/blob/master/contracts/ETHRegistrarController.sol)
@@ -21,30 +20,6 @@
 ### 域名注册
 
 下面的示例演示了注册域名所需的步骤。
-=======
-# Controller
-
-[Source](https://github.com/ensdomains/ethregistrar/blob/master/contracts/ETHRegistrarController.sol)
-
-This section documents the parts of the [ETHRegistrarController](https://github.com/ensdomains/ethregistrar/blob/master/contracts/ETHRegistrarController.sol) relevant to implementers of tools that interact with it. Functionality exclusive to the registrar owner is omitted for brevity.
-
-The controller works exclusively with plaintext labels \(eg, 'alice' for 'alice.eth'\).
-
-To prevent frontrunning, the ETHRegistrarController requires a commit/reveal process for new name registrations \(but not for renewals\). To register a name, the user must:
-
-1. Generate a commitment hash from the name they want to register and a secret value.
-2. Submit the commitment hash from \#1 to the controller.
-3. Wait for at least 1 minute, but no longer than 24 hours.
-4. Submit a registration request for the name, along with the secret value from \#1.
-
-This process ensures that registrations cannot be frontrun unless the attacker is able to censor the user's transactions for at least 1 minute.
-
-## Examples
-
-### Name Registration
-
-The below example demonstrates the steps required to register a name.
->>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 {% tabs %}
 {% tab title="web3.js" %}
@@ -73,171 +48,98 @@ For clarity, this example is written using async rather than callbacks. As a res
 {% endtab %}
 {% endtabs %}
 
-<<<<<<< HEAD
 ## 读取操作
 
 ### 获取最短委托时间
-=======
-## Read Operations
-
-### Get Minimum Commitment Age
->>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 uint constant public MIN_COMMITMENT_AGE;
 ```
 
-<<<<<<< HEAD
 这个公共常量表示委托的最短时间（以秒为单位），一次委托只能在它被打包后至少经过这么多秒才能被揭示。
 
 DApps应该获取这个常量，而不是对当前值进行硬编码，因为这个常量可能会在以后的升级中发生变化。
 
 ### 获取最长委托时间
-=======
-This public constant provides the minimum commitment age, in seconds. A commitment can only be revealed after at least this many seconds have passed since it was mined.
-
-DApps should fetch this constant rather than hardcoding the current value, as it's possible it will change with future releases.
-
-### Get Maximum Commitment Age
->>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 uint constant public MAX_COMMITMENT_AGE;
 ```
 
-<<<<<<< HEAD
 这个公共常量表示委托的最长时间（以秒为单位），一个委托在它被打包后经过这么多秒之后就会失效，不能再用于注册域名。
 
 DApps应该获取这个常量，而不是对当前值进行硬编码，因为这个常量可能会在以后的升级中发生变化。
 
 ### 获取最短注册时间
-=======
-This public constant provides the maximum commitment age, in seconds. A commitment that was mined more than this number of seconds ago is no longer valid, and cannot be used to register a name.
-
-DApps should fetch this constant rather than hardcoding the current value, as it's possible it will change with future releases.
-
-### Get Minimum Registration Duration
->>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 uint constant public MIN_REGISTRATION_DURATION;
 ```
 
-<<<<<<< HEAD
 这个公共常量表示注册的最短持续时间(以秒为单位)，少于此期限的注册将被拒绝。
 
 DApps应该获取这个常量，而不是对当前值进行硬编码，因为这个常量可能会在以后的升级中发生变化。
 
 ### 获取委托时间戳
-=======
-This public constant provides the minimum registration duration, in seconds. Registrations for less than this duration will be rejected.
-
-DApps should fetch this constant rather than hardcoding the current value, as it's possible it will change with future releases.
-
-### Get Commitment Timestamp
->>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 mapping(bytes32=>uint) public commitments;
 ```
 
-<<<<<<< HEAD
 `commitments`存储了从每一份提交的委托到对应委托时间戳的映射。在提交注册交易之前，希望验证委托有效性的调用者应该先检查这个映射。
 
 ### 获取租金价格
-=======
-`commitments` stores a mapping from each submitted to commitment to the timestamp at which it was made. Callers wishing to validate that a commitment is valid before submitting a registration transaction should check this map first.
-
-### Get Rent Price
->>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 function rentPrice(string name, uint duration) view public returns(uint);
 ```
 
-<<<<<<< HEAD
 `rentPrice`按照参数中提供的域名和时长，返回注册或续期所需的费用（以wei为单位）。调用者应该注意到这个价格可能随着时间的推移而变化，特别是价格预言机依赖于Fiat汇率的时候。
 
 调用者应该使用这个函数来获取注册费用并显示给用户，而不是在应用程序内部计算这些费用，因为以后对价格预言机的变更或升级可能会产生不同的定价方案，而且每年的注册费用取决于域名长度、注册持续时间或其他变量。
 
 ### 检查域名的有效性
-=======
-`rentPrice` returns the cost, in wei, to register or renew the provided name for the provided duration. Callers should note that this price may vary over time, particularly if the pricing oracle is relying on a fiat price conversion.
-
-Callers should use this function to obtain registration costs to display to the user rather than calculating them internally, as future changes to the pricing oracle may result in different pricing schemes, with registration cost-per-year depending on name length, registration duration, or other variables.
-
-### Check Name Validity
->>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 function valid(string name) public view returns(bool);
 ```
 
-<<<<<<< HEAD
 如果这个域名符合该控制器对注册的有效性要求(比如它满足长度要求)，则`valid`返回true。
 
 ### 检查域名的可用性
-=======
-`valid` returns true iff name is valid for registration with this controller \(eg, it meets length requirements\).
-
-### Check Name Availability
->>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 function available(string name) public view returns(bool);
 ```
 
-<<<<<<< HEAD
 如果这个域名符合该控制器对注册的有效性要求，并且可以注册，则`available`返回true。[在这个函数内部](https://github.com/ensdomains/ethregistrar/blob/master/contracts/ETHRegistrarController.sol#L55-L58)，使用了`valid`函数(上面的)和[注册中心](registrar.md#jian-cha-yu-ming-de-ke-yong-xing)合约中的`available`函数，`available`函数同时检查域名在旧版ENS注册中心和当前ENS注册中心中的可用性。
 
 调用者**应该**使用这个函数来检查域名是否可以注册，而不要用注册中心合约中的`available`函数，后者不检查域名的长度。
 
 ### 计算委托散列
-=======
-`available` returns true iff the name is both valid and available for registration by this controller. [Under the hood](https://github.com/ensdomains/ethregistrar/blob/master/contracts/ETHRegistrarController.sol#L55-L58), this call uses the `valid` function \(above\) and the `available` function on the [registrar](registrar.md#check-name-availability) contract, which checks for availability in both the legacy ENS registrar and current ENS registrar.
-
-Callers **should** use this function to check if a name is available for registration, rather than the `available` function on the registrar contract, which does not check name length.
-
-### Calculate Commitment Hash
->>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 function makeCommitment(string name, address owner, bytes32 secret) pure public returns(bytes32);
 ```
 
-<<<<<<< HEAD
 `makeCommitment`从域名标签（比如'myname'，而不是'myname.eth'）和秘密值生成并返回一个委托散列。
 
 ## 写入操作
 
 ### 提交委托
-=======
-`makeCommitment` generates and returns a commitment hash from a name label \(eg, 'myname', not 'myname.eth'\) owner, and secret value.
-
-## Write Operations
-
-### Submit Commitment
->>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 function commit(bytes32 commitment) public;
 ```
 
-<<<<<<< HEAD
 `commit`用于提交预委托，这个预委托是通过调用[makeCommitment](controller.md#ji-suan-wei-tuo-san-lie)生成的。
 
 ### 注册域名
-=======
-`commit` submits a precommitment generated by calling [makeCommitment](controller.md#calculate-commitment-hash).
-
-### Register Name
->>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 function register(string name, address owner, uint duration, bytes32 secret) public payable;
 ```
 
-<<<<<<< HEAD
 `register`用于注册域名，有效的注册请求必须符合下列准则:
 
 1. `available(name) == true`
@@ -248,54 +150,26 @@ function register(string name, address owner, uint duration, bytes32 secret) pub
 由于租金价格可能会随时间变化，所以建议调用者发送的租金略高于`rentPrice`返回的价格，5-10%的溢价应该就足够了，多余的资金都会返还给调用者。
 
 调用成功会触发以下事件：
-=======
-`register` registers a name. A valid registration request must meet the following criteria:
-
-1. `available(name) == true`.
-2. `duration >= MIN_REGISTRATION_DURATION`.
-3. `secret` identifies a valid commitment \(eg, `commitments[makeCommitment(name, secret)]` exists and is between 1 minute and 24 hours old.
-4. `msg.value >= rentPrice(name, duration)`.
-
-Because the rent price may vary over time, callers are recommended to send slightly more than the value returned by `rentPrice` - a premium of 5-10% will likely be sufficient. Any excess funds are returned to the caller.
-
-Emits the following event on a successful call:
->>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 event NameRegistered(string name, bytes32 indexed label, address indexed owner, uint cost, uint expires);
 ```
 
-<<<<<<< HEAD
 调用成功还会连带注册中心触发一个[域名注册事件](registrar.md#yu-ming-zhu-ce-shi-jian)，并连带ENS注册表触发一个[NewOwner事件](../ens.md#she-zhi-zi-yu-ming-suo-you-zhe)。
 
 ### 延长域名有效期
-=======
-A successful call also results in the Registrar emitting a [Name Registered Event](registrar.md#name-registered), and the ENS registry emitting a [New Owner Event](../ens.md#set-subdomain-owner).
-
-### Extend Name Registration
->>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 function renew(string name, uint duration) external payable;
 ```
 
-<<<<<<< HEAD
 `renew`用于续期一个域名。只要提供足够的资金，任何人都可以调用这个函数。由于租金价格可能会随时间变化，所以建议调用者发送的租金略高于`rentPrice`返回的价格，5-10%的溢价应该就足够了，多余的资金都会返还给调用者。
 
 调用成功会触发以下事件：
-=======
-`renew` renews a name. This function can be called by anyone, as long as sufficient funds are provided. Because the rent price may vary over time, callers are recommended to send slightly more than the value returned by `rentPrice` - a premium of 5-10% will likely be sufficient. Any excess funds are returned to the caller.
-
-Emits the following event on a successful call:
->>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
 ```text
 event NameRenewed(string name, bytes32 indexed label, uint cost, uint expires);
 ```
 
-<<<<<<< HEAD
 调用成功还会连带注册中心触发一个[域名续期事件](registrar.md#yu-ming-xu-qi-shi-jian)。
-=======
-A successful call also results in the Registrar emitting a [Name Renewed Event](registrar.md#name-renewed).
->>>>>>> d81ae59221d8fa9e1ee227cd0f0b6281465983cb
 
