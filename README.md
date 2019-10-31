@@ -1,5 +1,5 @@
 ---
-description: 本文档由刘笨笨翻译，原版位于 http://docs.ens.domains 。文中标记“LBB译注”的地方是译者为便于读者理解，提供的注记。
+description: 本文档由[刘笨笨](https://liubenben.com)翻译，原版位于 http://docs.ens.domains 。文中标记“LBB译注”的地方是译者为便于读者理解，提供的注记。
 ---
 
 # ENS介绍

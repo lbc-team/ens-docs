@@ -1,4 +1,4 @@
-# Terminology
+# 术语
 
 * **标签（label）**: 一个域名的独立组成部分，比如'alice.eth'中的'alice'。
 * **标签散列（labelhash）**: 单个标签的keccak256散列。
