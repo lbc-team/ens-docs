@@ -4,26 +4,23 @@
 
 ENS中最简单和最常用的函数是域名解析函数。域名可以关联多种类型的资源，其中最常见的是以太坊地址。借助ENS库，将域名解析为以太坊地址很简单：
 
-{% tabs %}
-{% tab title="ethereum-ens" %}
+**ethereum-ens**
 ```javascript
 var address = await ens.resolver('alice.eth').addr();
 ```
-{% endtab %}
 
-{% tab title="web3.js" %}
+**web3.js**
 ```javascript
 var address = ens.getAddress('alice.eth');
 ```
-{% endtab %}
 
-{% tab title="ethjs-ens" %}
+**ethjs-ens**
+
 ```javascript
 var address = await ens.lookup('alice.eth');
 ```
-{% endtab %}
 
-{% tab title="ethers.js" %}
+**ethers.js**
 ```javascript
 var address = await provider.resolveName('alice.eth');
 ```
@@ -43,21 +40,19 @@ const abi = [
 ];
 const contract = new ethers.Contract('contract.alice.eth', abi, provider);
 ```
-{% endtab %}
 
-{% tab title="go-ens" %}
+**go-ens**
 ```go
 address, err := ens.Resolve(client, "alice.eth")
 ```
-{% endtab %}
 
-{% tab title="web3.py" %}
+**web3.py**
+
 ```text
 address = ns.address('alice.eth')
 ```
-{% endtab %}
 
-{% tab title="web3j" %}
+**web3j**
 ```java
 String address = ens.resolve("alice.eth");
 ```
@@ -68,8 +63,6 @@ web3j同样支持在任何需要使用地址的地方也可以使用ENS域名，
 YourSmartContract contract = YourSmartContract.load(
         "contract.alice.eth", web3j, credentials, GAS_PRICE, GAS_LIMIT);
 ```
-{% endtab %}
-{% endtabs %}
 
 如果不借助ENS库，解析的过程可以分为三步：
 
@@ -79,9 +72,8 @@ YourSmartContract contract = YourSmartContract.load(
 
 对多币地址解析的支持是通过重载`addr()`来实现的。要解析多币地址，必须要有相应加密货币的Namehash和符合[SLIP44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md)规范的链ID。例如，要解析一个比特币地址，可以调用`addr(hash, 0)`。注意，返回的地址是用二进制表示的，因此要通过解码来得到文本格式的地址，详细内容请参阅[EIP2304](https://eips.ethereum.org/EIPS/eip-2304)。
 
-{% hint style="warning" %}
-使用`addr()`进行解析时，必须将来自解析器0x00…00的返回值视为未设置的记录。否则，在用户配置了解析器却没有为域名设置解析地址的情况下，可能导致用户的资金被发送到空地址!
-{% endhint %}
+> 警告: 使用`addr()`进行解析时，必须将来自解析器0x00…00的返回值视为未设置的记录。否则，在用户配置了解析器却没有为域名设置解析地址的情况下，可能导致用户的资金被发送到空地址!
+
 
 ## 解析至其他资源
 
@@ -95,14 +87,13 @@ YourSmartContract contract = YourSmartContract.load(
 
 反向解析是通过专用域名 _addr.reverse_ 和解析器的`name()`函数实现的。_addr.reverse_ 的所有权属于一个专用的注册中心合约，该合约将子域名分配给相应地址的所有者。例如，地址 _0x314159265dd8dbb310642f98f50c066173c1259b_ 可以要求使用 _314159265dd8dbb310642f98f50c066173c1259b.addr.reverse_，并设置解析器和解析记录。通过这个解析器的`name()`函数可以取得与该地址关联的域名。
 
-{% hint style="danger" %}
-ENS并不强制要求反向记录的准确性。例如，每个人都可以声明其地址的域名为"alice.eth"。所以，为了确保声明是准确的，你必须始终对返回的域名执行正向解析，并检查正向解析得到的地址是否与原始地址匹配。
-{% endhint %}
+
+> 警告: ENS并不强制要求反向记录的准确性。例如，每个人都可以声明其地址的域名为"alice.eth"。所以，为了确保声明是准确的，你必须始终对返回的域名执行正向解析，并检查正向解析得到的地址是否与原始地址匹配。
+
 
 大多数ENS库提供了执行反向解析的功能：
 
-{% tabs %}
-{% tab title="ethereum-ens" %}
+**ethereum-ens**:
 ```javascript
 const address = '0x1234...';
 var name = await ens.reverse(address).name()
@@ -111,13 +102,11 @@ if(address != await ens.resolver(name).addr()) {
   name = null;
 }
 ```
-{% endtab %}
 
-{% tab title="web3.js" %}
-Not supported.
-{% endtab %}
+**web3.js** 不支持
 
-{% tab title="ethjs-ens" %}
+
+**ethjs-ens**:
 ```javascript
 var address = '0x1234...';
 var name = await ens.reverse(address);
@@ -126,23 +115,22 @@ if(address != await ens.lookup(name)) {
   name = null;
 }
 ```
-{% endtab %}
 
-{% tab title="ethers.js" %}
+**ethers.js**:
 ```text
 var address = '0x1234...';
 var name = await provider.lookupAddress(address);
 // ethers.js automatically checks that the forward resolution matches.
 ```
-{% endtab %}
 
-{% tab title="go-ens" %}
+**go-ens**:
+
 ```go
 name, err := ens.ReverseResolve(client, common.HexToAddress("0x1234...")
 ```
-{% endtab %}
 
-{% tab title="web3.py" %}
+**web3.py**:
+
 ```python
 address = '0x1234...'
 name = ns.reverse(address)
@@ -150,9 +138,8 @@ name = ns.reverse(address)
 if address != ns.address(name):
   name = None
 ```
-{% endtab %}
 
-{% tab title="web3j" %}
+**web3j:**:
 ```java
 String address = "0x1234...";
 String name = ens.reverseResolve(address);
@@ -161,8 +148,7 @@ if(address != ens.resolve(name)) {
   name = null;
 }
 ```
-{% endtab %}
-{% endtabs %}
+
 
 如果不使用库，实现反向解析的过程也是一样的：查询`1234....addr.reverse`（其中的 _1234..._ 是需要进行反向解析的地址）的解析器并在该解析器上调用`name()`函数。然后，执行正向解析以验证记录是否准确。
 

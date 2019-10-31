@@ -18,11 +18,11 @@ description: >-
 
 ## 1. 用ENS域名替换以太坊地址
 
-{% hint style="warning" %}
-只有当用户为其地址设置了一个[反向记录](dapp-developer-guide/resolving-names#reverse-resolution)，并且反向记录（地址 &gt; 域名）能够与[正向解析](dapp-developer-guide/resolving-names#looking-up-ethereum-addresses)（域名 &gt; 地址）完全匹配时，这个ENS域名（作为对应以太坊地址的替代）**才可以被显示出来**。
-  
+
+> 警告：只有当用户为其地址设置了一个[反向记录](dapp-developer-guide/resolving-names#reverse-resolution)，并且反向记录（地址 &gt; 域名）能够与[正向解析](dapp-developer-guide/resolving-names#looking-up-ethereum-addresses)（域名 &gt; 地址）完全匹配时，这个ENS域名（作为对应以太坊地址的替代）**才可以被显示出来**。
+
 因此，作为DApp开发者，首先应该确认用户是否已经为其地址设置了反向记录。而且，由于用户可以自由设置反向记录，即使不属于他的域名或是其他随机字符也可以设置成功，所以，你还应该确认这个反向解析出的域名也能通过正向解析得到原来的地址。请从[这里](dapp-developer-guide/resolving-names#reverse-resolution)和后面的 _'other guidelines'_ 部分了解更多内容。
-{% endhint %}
+
 
 ### 1.1 - 将以太坊地址换成ENS域名显示
 
@@ -32,9 +32,7 @@ description: >-
 
 **添加一个可视校验和：**使用ENS域名时重要的一点就是得向用户指出，这里的域名是指可以关联以太坊地址或其他散列的ENS域名，而不是指http链接。为此，建议将ENS域名与某种形式的可视校验和（比如地址的[标识、Blockies](http://discuss.conflux.network/t/comparing-the-efficacy-of-visual-checksums-identicons-vs-blockies-vs-custom/59)或其他自定义算法表示）相关联。
 
-{% hint style="danger" %}
-**可视校验和**像身份识别一样[可以被欺骗](https://medium.com/@austin_48503/vanity-blockie-miner-for-ethereum-902fccf0a427)或模仿，所以它们**不能算是一种安全机制**。它们只是一个标识符，让用户知道这个域名**只是以太坊地址的另一种表示**。
-{% endhint %}
+> 警告：**可视校验和**像身份识别一样[可以被欺骗](https://medium.com/@austin_48503/vanity-blockie-miner-for-ethereum-902fccf0a427)或模仿，所以它们**不能算是一种安全机制**。它们只是一个标识符，让用户知道这个域名**只是以太坊地址的另一种表示**。
 
 * **设计一个缩略版的ENS域名：**ENS域名可以很长，除了不受字符限制之外，用户还可以创建无限数量的子域名以及子域名的子域名，所以可以考虑设计一个缩略版的ENS域名。如果显示了缩略版的域名，则应该提供查看完整域名的方法，例如在悬停时展开整个域名。
 * **不是所有的ENS域名都以.eth结尾：**ENS域名通常以.eth结尾。但是，ENS系统目前已经实现了对.xyz和.luxe这两个顶级域名（TLD）的支持，未来还将支持更多的顶级域名。如果你考虑在缩略版的ENS域名中显示TLD部分，请注意这一点。
@@ -88,11 +86,11 @@ description: >-
 
 ### **缓存和更新ENS域名**
 
-如果你的DApp需要在UI界面中显示许多以太坊地址或ENS域名，你还可以考虑在解析（和验证）该域名后，或是用户在输入字段中添加该域名之后，将这个ENS域名**缓存**起来。 
-  
+如果你的DApp需要在UI界面中显示许多以太坊地址或ENS域名，你还可以考虑在解析（和验证）该域名后，或是用户在输入字段中添加该域名之后，将这个ENS域名**缓存**起来。
+
 你的**开放式UI**可以在**毫无风险的情况下**安全地显示缓存中的域名，例如，用户只是在浏览，并且不需要根据显示的信息采取行动或做出决策，尤其是有风险的决策。
 但是，在所有**存在危险的情况下**（如转移ETH、代币或其他值），或者当用户与另一个ENS域名或以太坊地址交互时，你就应该**直接执行实时解析**，并从ENS注册表中获取最新的信息。
-  
+
 此外，考虑到用户可以随时更改ENS注册表中的信息，你还应该**定期验证当前缓存的信息**。为此，你可以订阅相关合约中发生的一些特定**事件**，尤其是[AddrChanged](../contract-api-reference/publicresolver#set-ethereum-address)和[NameChanged](../contract-api-reference/publicresolver#set-canonical-name)。
 
 ### 关于显示以太坊地址的说明（无论有没有ENS域名）
