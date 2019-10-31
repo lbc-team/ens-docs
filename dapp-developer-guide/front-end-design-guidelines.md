@@ -26,7 +26,7 @@ description: >-
 
 ### 1.1 - 将以太坊地址换成ENS域名显示
 
-![仅显示域名和可视校验和的示例](../.gitbook/assets/ensguidelines_01_onlydomain_2x.jpg)
+![仅显示域名和可视校验和的示例](../assets/ensguidelines_01_onlydomain_2x.jpg)
 
 当用ENS域名替换以太坊地址时，你应该考虑以下情况和实践经验:
 
@@ -39,7 +39,7 @@ description: >-
 
 ### 1.2 - 提供一个可以随时查看与ENS域名关联的以太坊地址的方法
 
-![单击域名后，会在弹出窗口中显示域名及其关联的地址](../.gitbook/assets/ensguidelines_03_expanded1.jpg)
+![单击域名后，会在弹出窗口中显示域名及其关联的地址](../assets/ensguidelines_03_expanded1.jpg)
 
 如果要显示ENS的完整域名或缩略版，你应该：
 
@@ -51,7 +51,7 @@ description: >-
 
 ### 1.3 - 同时显示ENS域名和以太坊地址
 
-![同时显示域名和地址界面的示例](../.gitbook/assets/ensguidelines_02_nameandaddress_2x.jpg)
+![同时显示域名和地址界面的示例](../assets/ensguidelines_02_nameandaddress_2x.jpg)
 
 有时你可能希望同时显示ENS域名和它解析到的以太坊地址。当遇到下列情况时，这种显示方式就会派上用场：
 
@@ -61,7 +61,7 @@ description: >-
 
 ## 2. 输入文本解析
 
-![解析输入时，同时显示ENS域名和地址](../.gitbook/assets/ensguidelines_02b_nameandaddressclear.jpg)
+![解析输入时，同时显示ENS域名和地址](../assets/ensguidelines_02b_nameandaddressclear.jpg)
 
 在用户可以输入以太坊地址的文本框里也应该支持ENS域名的输入和解析，这些输入表明用户希望与另一个用户的以太坊地址或合约进行交互。
 
@@ -101,7 +101,7 @@ description: >-
 * 需要缩略显示域名时，可以**显示地址的前4个和后4个字符**。相对来说，缩略地址更容易被欺骗，所以这并不是一个安全要求，但这是一个很好的经验，因为有些用户检查域名的开头，有些用户检查域名的结尾。而且，我们的大脑可以轻松划分、解析和记忆的字符最多为4个。
 * **始终提供一种显示完整以太坊地址的方式。**可以采用与显示ENS域名或提示信息相同的弹出组件。
 
-![使用decentralandUI提示信息显示完整地址](../.gitbook/assets/ensguidelines_03_expanded2simple_justatooltip2.jpg)
+![使用decentralandUI提示信息显示完整地址](../assets/ensguidelines_03_expanded2simple_justatooltip2.jpg)
 
 前面提到的一些经验也适用于缩略的以太坊地址：
 

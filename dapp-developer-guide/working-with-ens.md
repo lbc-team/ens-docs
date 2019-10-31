@@ -52,6 +52,7 @@ import (
 client, err := ethereum.Dial("/home/ethereum/.ethereum/geth.ipc")
 registry, err := ens.Registry(client)
 ```
+
 **web3.py**
 ```python
 from ens.auto import ns

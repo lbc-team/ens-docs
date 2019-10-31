@@ -27,3 +27,7 @@ contract FIFSRegistrar {
 
 你还应该记住，只要你保留父域名的所有权（无论是直接的还是通过另一个合约的方式），你的用户就无法保证他们拥有的子域名的所有权不会被你收回，也无法保证他们关于子域名的设置不会被你更改。你可能打算将域名的所有权转让给一个能够限制你控制它的合约中。有关示例，请参见[ENSNow](https://github.com/ensdomains/subdomain-registrar)。
 
+## 进一步查看
+
+* [ENS讨论区](https://discuss.ens.domains/)
+* [ENS在线支持](https://gitter.im/ethereum/go-ethereum/name-registry)

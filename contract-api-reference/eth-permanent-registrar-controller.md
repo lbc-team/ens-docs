@@ -168,3 +168,7 @@ event NameRenewed(string name, bytes32 indexed label, uint cost, uint expires);
 
 调用成功还会连带注册中心触发一个[域名续期事件](registrar.md#yu-ming-xu-qi-shi-jian)。
 
+## 进一步查看
+
+* [DNS注册中心](https://dnsregistrar.readthedocs.io/en/doc)
+* [DNSProvejs](https://dnsprovejs.readthedocs.io)
