@@ -50,7 +50,7 @@ def namehash(name):
     return sha3(namehash(remainder) + sha3(label))
 ```
 
-Namehash在[EIP137](https://eips.ethereum.org/EIPS/eip-137)中有详细的说明。
+Namehash在[EIP137](https://learnblockchain.cn/docs/eips/eip-137.html)中有详细的说明。
 
 ## 不明确域名的处理
 

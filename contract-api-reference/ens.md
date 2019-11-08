@@ -8,7 +8,7 @@ description: ENS注册表。
 
 ENS注册表是ENS系统中的核心合约，所有的ENS查询都从注册表开始。注册表负责管理域名列表，记录每个域名的所有者、解析器和TTL，并允许域名的所有者对这些数据进行更改。
 
-ENS注册表的详细信息请参阅[EIP137](https://eips.ethereum.org/EIPS/eip-137)。
+ENS注册表的详细信息请参阅[EIP137](https://learnblockchain.cn/docs/eips/eip-137.html)。
 
 ## 获取所有者
 

@@ -10,13 +10,13 @@ description: 默认的公共解析器。
 
 公共解析器遵循以下EIP提案:
 
-* [EIP137](https://eips.ethereum.org/EIPS/eip-137) - Contract address interface \(`addr()`\).
-* [EIP165 ](https://eips.ethereum.org/EIPS/eip-165)- Interface Detection \(`supportsInterface()`\).
-* [EIP181](https://eips.ethereum.org/EIPS/eip-181) - Reverse resolution \(`name()`\).
-* [EIP205](https://eips.ethereum.org/EIPS/eip-205) - ABI support \(`ABI()`\).
+* [EIP137](https://learnblockchain.cn/docs/eips/eip-137.html) - Contract address interface \(`addr()`\).
+* [EIP165 ](https://learnblockchain.cn/docs/eips/eip-165.html)- Interface Detection \(`supportsInterface()`\).
+* [EIP181](https://learnblockchain.cn/docs/eips/eip-181.html) - Reverse resolution \(`name()`\).
+* [EIP205](https://learnblockchain.cn/docs/eips/eip-205.html) - ABI support \(`ABI()`\).
 * [EIP619](https://github.com/ethereum/EIPs/pull/619) - SECP256k1 public keys \(`pubkey()`\).
-* [EIP634](https://eips.ethereum.org/EIPS/eip-634) - Text records \(`text()`\).
-* [EIP1577](https://eips.ethereum.org/EIPS/eip-1577) - Content hash support \(`contenthash()`\).
+* [EIP634](https://learnblockchain.cn/docs/eips/eip-634.html) - Text records \(`text()`\).
+* [EIP1577](https://learnblockchain.cn/docs/eips/eip-1577.html) - Content hash support \(`contenthash()`\).
 
 > 虽然`公共解析器`提供了一个方便的默认解析器，但仍然存在许多其他的解析器实例和版本。调用者**不能**假设域名使用的是公共解析器的最新版本，或是解析器包含了这里描述的所有方法。要检查一个解析器是否支持某个特性，请参见[接口检查支持](publicresolver.md#jie-kou-jian-cha-zhi-chi)。
 
@@ -26,7 +26,7 @@ description: 默认的公共解析器。
 function supportsInterface(bytes4 interfaceID) external pure returns (bool)
 ```
 
-ENS使用[ERC165](https://eips.ethereum.org/EIPS/eip-165)进行接口检测。ERC165要求支持它的合约实现一个名为`supportsInterface`的函数，该函数接收一个接口ID并返回一个布尔值，这个布尔值表示是否支持该接口。
+ENS使用[ERC165](https://learnblockchain.cn/docs/eips/eip-165.html)进行接口检测。ERC165要求支持它的合约实现一个名为`supportsInterface`的函数，该函数接收一个接口ID并返回一个布尔值，这个布尔值表示是否支持该接口。
 
 接口ID由包含在接口中的每个函数的4字节函数ID通过异或计算而来。例如，`addr(bytes32)`的函数ID为 _0x3b3b57de_，因为它是以太坊地址接口中唯一的函数，所以它的接口ID也是 _0x3b3b57de_，因此调用`supportsInterface(0x3b3b57de)`将为任何支持`addr()`的解析器返回 _true_。
 
@@ -44,7 +44,7 @@ function addr(bytes32 node) external view returns (address)
 
 这个函数的接口ID为 _0x3b3b57de_。
 
-这个函数的详细信息请参阅[EIP137](https://eips.ethereum.org/EIPS/eip-137)。
+这个函数的详细信息请参阅[EIP137](https://learnblockchain.cn/docs/eips/eip-137.html)。
 
 ## 设置以太坊地址
 
@@ -72,7 +72,7 @@ function name(bytes32 node) external view returns (string memory);
 
 这个函数的接口ID为 _0x691f3431_.
 
-这个函数的详细信息请参阅[EIP181](https://eips.ethereum.org/EIPS/eip-181)。
+这个函数的详细信息请参阅[EIP181](https://learnblockchain.cn/docs/eips/eip-181.html)。
 
 ## 设置规范域名
 
@@ -96,13 +96,13 @@ event NameChanged(bytes32 indexed node, string name);
 function contenthash(bytes32 node) external view returns (bytes memory);
 ```
 
-返回`node`的内容散列(如果存在的话)。涉及的值会被格式化为机器可读的[multicodecs](https://github.com/multiformats/multicodec)，详细信息请参阅[EIP 1577](https://eips.ethereum.org/EIPS/eip-1577)。
+返回`node`的内容散列(如果存在的话)。涉及的值会被格式化为机器可读的[multicodecs](https://github.com/multiformats/multicodec)，详细信息请参阅[EIP 1577](https://learnblockchain.cn/docs/eips/eip-1577.html)。
 
 `contenthash`用于存储IPFS和Swarm内容散列，可以将ENS域名解析到托管在这些分布式网络上的内容（如网站）。
 
 这个函数的接口ID为 _0xbc1c58d1_。
 
-这个函数的详细信息请参阅[EIP1577](https://eips.ethereum.org/EIPS/eip-1157)。
+这个函数的详细信息请参阅[EIP1577](https://learnblockchain.cn/docs/eips/eip-1157.html)。
 
 ## 设置内容散列
 
@@ -114,7 +114,7 @@ function setContenthash(bytes32 node, bytes calldata hash) external;
 
 只能由`node`的所有者调用。
 
-涉及的值会被格式化为机器可读的[multicodecs](https://github.com/multiformats/multicodec)，详细信息请参阅[EIP1577](https://eips.ethereum.org/EIPS/eip-1577)。
+涉及的值会被格式化为机器可读的[multicodecs](https://github.com/multiformats/multicodec)，详细信息请参阅[EIP1577](https://learnblockchain.cn/docs/eips/eip-1577.html)。
 
 该操作会触发以下事件：
 
@@ -141,7 +141,7 @@ ABI(bytes32 node, uint256 contentTypes) external view returns (uint256, bytes me
 
 这个函数的接口ID为 _0x2203ab56_。
 
-这个函数的详细信息请参阅[EIP205](https://eips.ethereum.org/EIPS/eip-205)。
+这个函数的详细信息请参阅[EIP205](https://learnblockchain.cn/docs/eips/eip-205.html)。
 
 ## 设置合约ABI
 
@@ -215,7 +215,7 @@ function text(bytes32 node, string calldata key) external view returns (string m
 
 这个函数的接口ID为 _0x59d1d43c_。
 
-这个函数的详细信息请参阅[EIP634](https://eips.ethereum.org/EIPS/eip-634)。
+这个函数的详细信息请参阅[EIP634](https://learnblockchain.cn/docs/eips/eip-634.html)。
 
 ## 设置文本数据
 

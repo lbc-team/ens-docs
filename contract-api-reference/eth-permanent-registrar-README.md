@@ -41,15 +41,15 @@
 
 找到新版注册中心的地址很容易：在ENS注册表中通过调用`owner(namehash('eth'))`来查询"eth"域名的所有者。
 
-为了支持发现控制器的地址，ENS通过[EIP1844](https://eips.ethereum.org/EIPS/eip-1844)支持接口发现。该机制允许通过以下过程来查询实现了所需接口的合约地址：
+为了支持发现控制器的地址，ENS通过[EIP1844](https://learnblockchain.cn/docs/eips/eip-1844.html)支持接口发现。该机制允许通过以下过程来查询实现了所需接口的合约地址：
 
 1. 设置`node = namehash('eth')`。
 2. 通过调用ENS注册表上的`resolver(node)`来查找ENS解析器。
-3. 调用该解析器上的`interfaceImplementer(node, interfaceId)`方法，其中`interfaceId`是你所需接口的[EIP165](https://eips.ethereum.org/EIPS/eip-165)接口ID。
+3. 调用该解析器上的`interfaceImplementer(node, interfaceId)`方法，其中`interfaceId`是你所需接口的[EIP165](https://learnblockchain.cn/docs/eips/eip-165.html)接口ID。
 
 以下是目前为.eth永久注册中心定义的接口ID：
 
-* `0x6ccb2df4`，[ERC721](https://eips.ethereum.org/EIPS/eip-721)（NFT）的接口ID，它返回注册中心本身的地址（也可以通过地址查找或查找'.eth'的所有者来获取）。
+* `0x6ccb2df4`，[ERC721](https://learnblockchain.cn/docs/eips/eip-721.html)（NFT）的接口ID，它返回注册中心本身的地址（也可以通过地址查找或查找'.eth'的所有者来获取）。
 * `0x018fac06`，控制器的接口ID，返回控制器的地址。
 * `0x7ba18ba1`，旧版注册中心的迁移功能的接口ID，返回旧版注册中心地址。
 
